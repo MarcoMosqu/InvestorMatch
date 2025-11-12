@@ -181,30 +181,61 @@ nav a:hover {
     background-color: #3498db;
 }
 
-/* ---------------- Hero Section (Full Screen Banner) ---------------- */
+
+/* ---------------- Hero Section (Responsive, Smaller Banner) ---------------- */
 .hero {
-  height: 50vh;
-  width: 100%;
+  width: 100%;                        /* full width */
+  height: 180px;                       /* smaller default height */
+  max-height: 250px;                   /* maximum height on large screens */
+  min-height: 150px;                   /* minimum height on small screens */
+
   background-image: url('hunting2.jpg');
-  background-size: cover;
-  background-position: center;
+  background-size: cover;              /* cover container */
+  background-position: center;         /* center the image */
   background-repeat: no-repeat;
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: center;             /* vertical centering of text */
+  align-items: center;                 /* horizontal centering */
 
   text-align: center;
   color: white;
   text-shadow: 0 2px 6px rgba(0,0,0,0.6);
 
   animation: zoomEffect 20s ease-in-out infinite alternate;
+  padding: 0 20px;                     /* horizontal padding for small screens */
 }
 
+/* Zoom animation */
 @keyframes zoomEffect {
   0% { transform: scale(1); }
-  100% { transform: scale(1.05); }
+  100% { transform: scale(1.03); }      /* subtle zoom for small height */
+}
+
+/* Responsive text */
+.hero h1 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero p {
+  font-size: 1rem;
+}
+
+/* Optional: smaller screens */
+@media (max-width: 600px) {
+  .hero {
+    height: 150px;                      /* reduce banner height on mobile */
+  }
+
+  .hero h1 {
+    font-size: 1.4rem;
+  }
+
+  .hero p {
+    font-size: 0.9rem;
+  }
 }
 
 /* ---------------- Images ---------------- */
