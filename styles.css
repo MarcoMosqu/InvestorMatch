@@ -185,7 +185,7 @@ nav a:hover {
 /* ---------------- Hero Section (Responsive, Smaller Banner) ---------------- */
 .hero {
   width: 100%;                        /* full width */
-  height: 180px;                       /* smaller default height */
+  height: 80px;                       /* smaller default height */
   max-height: 250px;                   /* maximum height on large screens */
   min-height: 150px;                   /* minimum height on small screens */
 
