@@ -184,7 +184,7 @@ nav a:hover {
 /* ---------------- Hero Section (Full Screen Banner) ---------------- */
 .hero {
   height: 50vh;
-  width: 100%;
+  width: 50%;
   background-image: url('hunting2.jpg');
   background-size: cover;
   background-position: center;
