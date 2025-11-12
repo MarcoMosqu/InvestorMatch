@@ -1,140 +1,151 @@
 /* ===================================================
-   Basic CSS Styling for Investor Match Website
+   Merged CSS for Investor Match Website
    Author: Marco Mosquera
-   Date: 2025-10-23
+   Date: 2025-11-12
 =================================================== */
 
-/* ---------------- Basic selectors ---------------- */
+/* ---------------- Root Variables ---------------- */
+:root {
+  --color-primary: #2563EB;
+  --color-accent:  #22C55E;
+  --neutral-900:   #1E293B;
+  --neutral-100:   #F8FAFC;
+  --neutral-200:   #E2E8F0;
 
-/* Style all h1 elements (main headings) */
-h1 {
-    font-family: 'Arial', sans-serif;  /* Font type */
-    font-size: 2.5rem;                 /* Font size */
-    color: #2c3e50;                    /* Dark blue color */
-    text-align: center;                /* Center text */
-    margin-bottom: 10px;               /* Space below heading */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 32px;
+
+  --radius-md: 12px;
+  --shadow-soft: 0 6px 20px rgba(16,24,40,0.06);
+  --max-width: 1100px;
 }
 
-/* Style all paragraph elements */
-p {
-    font-family: 'Verdana', sans-serif; /* Font type */
-    font-size: 1rem;                     /* Font size */
-    color: #34495e;                      /* Grayish text color */
-    line-height: 1.6;                    /* Space between lines */
-    margin-bottom: 15px;                 /* Space below paragraph */
+/* ---------------- Reset + Base ---------------- */
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, sans-serif;
+  color: var(--neutral-900);
+  background: var(--neutral-100);
+  line-height: 1.5;
 }
 
-/* Style all div elements (containers) */
-div {
-    padding: 20px;             /* Inner spacing */
-    margin: 15px auto;         /* Outer spacing and center horizontally */
-    max-width: 900px;          /* Limit width for readability */
-}
-
-/* Style all links */
 a {
-    font-family: 'Tahoma', sans-serif;  /* Font type */
-    font-size: 1rem;                     /* Font size */
-    color: #2980b9;                      /* Blue link color */
-    text-decoration: none;               /* Remove underline */
+  color: var(--color-primary);
+  text-decoration: none;
 }
 
-/* Hover effect for all links */
+a:hover { text-decoration: underline; }
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-4);
+}
+
+/* ---------------- Shared Components ---------------- */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-3) 0;
+}
+
+.cta {
+  background: var(--color-primary);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-weight: 600;
+  box-shadow: 0 6px 18px rgba(37,99,235,0.15);
+  transition: transform .18s ease;
+}
+
+.cta:hover { transform: translateY(-2px); }
+
+.card {
+  background: #fff;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+  padding: var(--space-4);
+}
+
+/* ---------------- Typography ---------------- */
+h1 {
+    font-family: 'Arial', sans-serif;
+    font-size: 2.5rem;
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+p {
+    font-family: 'Verdana', sans-serif;
+    font-size: 1rem;
+    color: #34495e;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+div {
+    padding: 20px;
+    margin: 15px auto;
+    max-width: 900px;
+}
+
+/* ---------------- Links ---------------- */
+a {
+    font-family: 'Tahoma', sans-serif;
+    font-size: 1rem;
+    color: #2980b9;
+    text-decoration: none;
+}
+
 a:hover {
-    color: #e74c3c;                      /* Red on hover */
+    color: #e74c3c;
 }
 
-/* ---------------- Advanced selectors ---------------- */
-
-/* ID selectors for specific sections */
+/* ---------------- Section IDs ---------------- */
 #about {
-    background-color: #ecf0f1;           /* Light gray background */
-    border-left: 5px solid #2980b9;      /* Colored left border */
+    background-color: #ecf0f1;
+    border-left: 5px solid #2980b9;
 }
 
 #services {
-    background-color: #fdf6e3;           /* Light beige background */
-    border-left: 5px solid #27ae60;      /* Green left border */
+    background-color: #fdf6e3;
+    border-left: 5px solid #27ae60;
 }
 
 #join {
-    background-color: #f0f3f5;           /* Light blue-gray background */
-    border-left: 5px solid #f39c12;      /* Orange left border */
-    text-align: center;                  /* Center text in join section */
+    background-color: #f0f3f5;
+    border-left: 5px solid #f39c12;
+    text-align: center;
 }
 
-/* Class selector for call-to-action button */
+/* ---------------- Buttons ---------------- */
 .join-button {
-    display: inline-block;               /* Treat like a button */
-    padding: 10px 25px;                  /* Button padding */
-    background-color: #2980b9;           /* Blue background */
-    color: white;                         /* White text */
-    font-weight: bold;                     /* Bold text */
-    border-radius: 5px;                    /* Rounded corners */
-    margin-top: 10px;                      /* Space above button */
+    display: inline-block;
+    padding: 10px 25px;
+    background-color: #2980b9;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-top: 10px;
 }
 
-/* Hover effect for join button */
 .join-button:hover {
-    background-color: #3498db;           /* Lighter blue on hover */
-}
-
-/* Descendant selector for small text inside footer */
-footer p small {
-    display: block;                      /* Force new line */
-    font-size: 0.8rem;                   /* Smaller font */
-    color: #7f8c8d;                      /* Gray color */
-    text-align: center;                   /* Center text */
-}
-
-/* Group selector for header text */
-header h1, header p {
-    text-align: center;                   /* Center all header text */
-    margin: 0;                            /* Remove default margin */
-}
-
-/* Attribute selector for images with alt attribute */
-img[alt] {
-    display: block;                        /* Block for centering */
-    margin: 20px auto;                     /* Center image */
-    border-radius: 10px;                   /* Rounded corners */
-}
-
-/* ---------------- Navigation Bar ---------------- */
-
-/* Style the navigation container */
-nav {
-    text-align: center;                    /* Center nav links */
-    margin: 20px 0;                        /* Space above and below nav */
-}
-
-/* Style nav links as clickable boxes */
-nav a {
-    display: inline-block;                 /* Treat like buttons */
-    padding: 10px 20px;                    /* Button padding */
-    margin: 5px;                           /* Space between links */
-    background-color: #2980b9;             /* Blue background */
-    color: white;                           /* White text */
-    text-decoration: none;                 /* Remove underline */
-    border-radius: 5px;                     /* Rounded corners */
-    font-weight: bold;                      /* Bold text */
-    transition: background-color 0.3s;     /* Smooth hover effect */
-}
-
-/* Hover effect for nav links */
-nav a:hover {
-    background-color: #3498db;            /* Lighter blue on hover */
+    background-color: #3498db;
 }
 
 /* ---------------- Footer ---------------- */
-
-/* Center all footer paragraphs */
 footer p {
-    text-align: center;                    /* Center text */
-    margin: 5px 0;                         /* Space above/below paragraphs */
+    text-align: center;
+    margin: 5px 0;
 }
 
-/* Smaller, centered text for footer small element */
 footer p small {
     display: block;
     text-align: center;
@@ -142,16 +153,73 @@ footer p small {
     color: #7f8c8d;
 }
 
-/* ---------------- Header Image Banner ---------------- */
-
-/* Style the main header image */
-header img {
-    width: 100%;                            /* Full width of container */
-    max-width: 950px;                       /* Limit maximum width */
-    height: 150px;                          /* Fixed height for banner look */
-    display: block;                         /* Block for centering */
-    margin: 20px auto;                      /* Space above/below & center */
-    border-radius: 10px;                     /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);  /* Subtle shadow for depth */
+/* ---------------- Header Banner ---------------- */
+header h1, header p {
+    text-align: center;
+    margin: 0;
 }
 
+header img {
+    width: 100%;
+    max-width: 950px;
+    height: 150px;
+    display: block;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* ---------------- Navigation ---------------- */
+nav {
+    text-align: center;
+    margin: 20px 0;
+}
+
+nav a {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    background-color: #2980b9;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+nav a:hover {
+    background-color: #3498db;
+}
+
+/* ---------------- Hero Section (Full Screen Banner) ---------------- */
+.hero {
+  height: 100vh;
+  width: 100%;
+  background-image: url('hunting2.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  color: white;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+
+  animation: zoomEffect 20s ease-in-out infinite alternate;
+}
+
+@keyframes zoomEffect {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.05); }
+}
+
+/* ---------------- Images ---------------- */
+img[alt] {
+    display: block;
+    margin: 20px auto;
+    border-radius: 10px;
+}
