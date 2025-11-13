@@ -231,10 +231,12 @@ nav a:hover {
 
   .hero h1 {
     font-size: 1.4rem;
+     color: white;
   }
 
   .hero p {
     font-size: 0.9rem;
+   color: white;
   }
 }
 
