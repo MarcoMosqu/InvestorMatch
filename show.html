@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investor Match </title>
+    <meta name="description" content="Investor Match helps startups showcase ideas, find funding, and connect with the right investors. Learn about our services.">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- HEADER SECTION -->
+  <header class="hero" >
+    <!-- Main heading of the homepage -->
+    <h1>Connecting Businesses with the Right Investors</h1>
+    
+    <!-- Subheading / slogan -->
+  <p class="rain-text">
+      <span>Your</span>
+      <span>bridge</span>
+      <span>between</span>
+      <span class="right-text">ideas</span>
+      <span class="right-text">and</span>
+      <span class="right-text">smart</span> 
+      <span class="right-text">capital.</span>
+  </p>
+
+
+  </header>
+<!-- ================================
+   MENU BAR (TOP)
+================================ -->
+ <!-- NAVIGATION BAR -->
+  <nav>
+    <!-- Navigation links to different pages -->
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="contact.html">Contact</a>
+    
+  </nav>
+
+<!-- ================================
+   MAIN LAYOUT
+================================ -->
+<div class="services-layout">
+
+  <!-- =======================
+         FILTER PANEL
+  ======================== -->
+  <aside class="services-filter">
+    <h3>Filter Startups</h3>
+
+    <div class="filter-group">
+      <h4>Industry</h4>
+      <label><input type="checkbox"> FinTech</label>
+      <label><input type="checkbox"> HealthTech</label>
+      <label><input type="checkbox"> EdTech</label>
+      <label><input type="checkbox"> AI / ML</label>
+    </div>
+
+    <div class="filter-group">
+      <h4>Funding Stage</h4>
+      <label><input type="checkbox"> Pre-Seed</label>
+      <label><input type="checkbox"> Seed</label>
+      <label><input type="checkbox"> Series A</label>
+      <label><input type="checkbox"> Series B+</label>
+    </div>
+
+    <button class="filter-btn">Apply Filters</button>
+  </aside>
+
+  <!-- =======================
+        SHOWCASE CAROUSEL
+  ======================== -->
+  <section class="services-content">
+
+    <h2>Startup Showcases</h2>
+    <p>Explore the top startups searching for funding.</p>
+
+    <div class="carousel">
+
+      <!-- Radios -->
+      <input type="radio" name="carousel" id="slide1" checked>
+      <input type="radio" name="carousel" id="slide2">
+     
+      <!-- Track -->
+      <div class="carousel-track">
+
+        <!-- Slide 1 -->
+        <div class="carousel-slide">
+          <div class="service-box">
+            <a href="contact.html">
+            <h3>FinAI — Automated Financial Planning</h3>
+            <p>AI-powered wealth automation for young professionals.</p>
+            <ul>
+              <li>Industry: FinTech</li>
+              <li>Stage: Seed</li>
+              <li>Looking for: $500K</li>
+            </ul>
+          </div>
+          </a>
+        </div>
+         
+        <!-- Slide 2 -->
+        <div class="carousel-slide">
+          <a href="contact.html">
+          <div class="service-box">
+            <h3>HealthLoop — Smart Remote Patient Care</h3>
+            <p>IoT + AI health monitoring for hospitals & clinics.</p>
+            <ul>
+              <li>Industry: HealthTech</li>
+              <li>Stage: Series A</li>
+              <li>Looking for: $2M</li>
+            </ul>
+          </div>
+          </a>
+        </div>
+
+
+      </div>
+
+      <!-- Arrows -->
+      <label for="slide1" class="carousel-arrow prev">‹</label>
+      <label for="slide2" class="carousel-arrow next">›</label>
+
+      <!-- Dots -->
+      <div class="carousel-dots">
+        <label for="slide1"></label>
+        <label for="slide2"></label>
+
+      </div>
+
+    </div>
+
+  </section>
+</div>
+<!-- FOOTER SECTION -->
+  <footer>
+    <!-- Copyright notice -->
+    <p>&copy; 2025 Investor Match. All rights reserved.</p>
+    
+    <!-- tagline  -->
+    <p><small>Empowering innovation through smart connections.</small></p>
+      <p><small></small>https://github.com/MarcoMosqu</small></p>
+  </footer>
+
+</body>
+</html>
