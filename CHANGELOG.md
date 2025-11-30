@@ -16,6 +16,7 @@
    
 ## v1.2 -  2025-11-29
 - Added Services pages with 3D cards
+- No Found page (404 Page)
 - Updated About page content and design structure
 - Implemented image and multimedia assets
 - Added filter section layout for Startup Showcases
