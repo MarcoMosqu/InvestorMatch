@@ -483,7 +483,6 @@ footer p small { display: block; text-align: center; font-size: 0.8rem; color: #
 /* ==========================================
    PURE CSS CAROUSEL — INVESTOR SHOWCASES
 ========================================== */
-
 .simple-carousel {
   width: 100%;
   max-width: 650px;
@@ -491,6 +490,7 @@ footer p small { display: block; text-align: center; font-size: 0.8rem; color: #
   overflow: hidden;
   margin: 0 auto;
   border-radius: 10px;
+  background: #111;
 }
 
 .slides {
@@ -501,41 +501,52 @@ footer p small { display: block; text-align: center; font-size: 0.8rem; color: #
 .slide {
   min-width: 100%;
   height: 320px;
-  position: relative;
-  padding: 20px;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
   color: white;
-  text-shadow: 0 2px 6px rgba(0,0,0,0.6);
   border-radius: 10px;
+  background: #1e1e1e;
+  overflow: hidden;
+}
+
+/* Left-side image block */
+.slide::before {
+  content: "";
+  display: block;
+  width: 180px;
+  height: 180px;
+  margin: 20px;
+  border-radius: 20px;
+  flex-shrink: 0;
   background-size: cover;
   background-position: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.35);
 }
 
-/* Individual slide images */
-.slide1 {
-  background-image: url("https://picsum.photos/800/450?1");
+/* Assign different images per slide */
+.slide1::before { background-image: url("https://picsum.photos/300/300?1"); }
+.slide2::before { background-image: url("https://picsum.photos/300/300?2"); }
+.slide3::before { background-image: url("https://picsum.photos/300/300?3"); }
+
+.slide-info {
+  flex: 1;
+  padding: 20px;
 }
 
-.slide2 {
-  background-image: url("https://picsum.photos/800/450?2");
+.slide-info h3 {
+  margin-bottom: 6px;
+  font-size: 20px;
+  font-weight: bold;
 }
 
-.slide3 {
-  background-image: url("https://picsum.photos/800/450?3");
+.slide-info p {
+  margin: 4px 0 10px;
 }
 
-/* Fix spacing for text inside slides */
-.slide p, .slide ul {
-  margin: 6px 0;
-}
-
-.slide ul {
+.slide-info ul {
+  margin: 0;
+  padding: 0;
   list-style: none;
-  padding: 10px;
 }
-
 
 /* Manual arrows */
 .prev,
@@ -543,25 +554,22 @@ footer p small { display: block; text-align: center; font-size: 0.8rem; color: #
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  padding: 12px 20px;
+  padding: 10px 16px;
   border: none;
   background: black;
   color: white;
   cursor: pointer;
   opacity: 0.7;
+  border-radius: 8px;
+  font-size: 18px;
 }
 
 .prev:hover,
-.next:hover {
-  opacity: 1;
-}
+.next:hover { opacity: 1; }
 
 .prev { left: 15px; }
 .next { right: 15px; }
-
-.prev, .next {
-  z-index: 10;
-}
+.prev, .next { z-index: 10; }
 
 /*-------------------code show1----------------------------- //////
 /* LEFT-SIDE BANNER IMAGE */
