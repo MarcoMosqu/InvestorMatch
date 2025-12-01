@@ -153,7 +153,14 @@ nav a:hover { background-color: #3498db; }
 .join-button:hover { background-color: #3498db; }
 
 /* -------------------Footer ---------------------------*/
-
+/* Footer fix */
+footer.footer {
+  width: 100%;
+  text-align: center;
+  margin-top: 40px;
+  padding: 20px 0;
+  background: var(--neutral-100, #f4f4f4);
+}
 footer p { text-align: center; margin: 5px 0; }
 footer p small { display: block; text-align: center; font-size: 0.8rem; color: #7f8c8d; }
 
@@ -477,87 +484,85 @@ footer p small { display: block; text-align: center; font-size: 0.8rem; color: #
    PURE CSS CAROUSEL — INVESTOR SHOWCASES
 ========================================== */
 
-.carousel {
+.simple-carousel {
   width: 100%;
+  max-width: 650px;
   position: relative;
   overflow: hidden;
-  padding: 0;
-  margin: 0;
+  margin: 0 auto;
+  border-radius: 10px;
 }
 
-.carousel-track {
+.slides {
   display: flex;
-  width: 400%;
-  transition: transform 0.5s ease;
-  align-items: flex-start; /* ensure slides start at top */
+  transition: transform 0.4s ease-in-out;
 }
 
-.carousel-slide {
-  width: 100%;
-  flex-shrink: 0;
-  padding-right: var(--space-4);
-  padding: 0; /* remove any padding that adds vertical space */
-}
-
-.carousel input {
-  display: none;
-}
-
-/* ------- Navigation Dots ------- */
-.carousel-dots {
-  text-align: center;
-  margin-top: var(--space-3);
+.slide {
+  min-width: 100%;
+  height: 320px;
+  position: relative;
+  padding: 20px;
   display: flex;
-  justify-content: center;
-  gap: 10px;
+  flex-direction: column;
+  justify-content: flex-end;
+  color: white;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+  border-radius: 10px;
+  background-size: cover;
+  background-position: center;
 }
 
-.carousel-dots label {
-  width: 14px;
-  height: 14px;
-  background: var(--neutral-300);
-  border-radius: 50%;
-  cursor: pointer;
-  transition: 0.3s ease;
+/* Individual slide images */
+.slide1 {
+  background-image: url("https://picsum.photos/800/450?1");
 }
 
-.carousel-dots label:hover {
-  background: var(--color-primary);
+.slide2 {
+  background-image: url("https://picsum.photos/800/450?2");
 }
 
-/* Active dot */
-#slide1:checked ~ .carousel-dots label[for="slide1"],
-#slide2:checked ~ .carousel-dots label[for="slide2"],
-#slide3:checked ~ .carousel-dots label[for="slide3"],
-#slide4:checked ~ .carousel-dots label[for="slide4"] {
-  background: var(--color-primary);
+.slide3 {
+  background-image: url("https://picsum.photos/800/450?3");
 }
 
-/* ------- Slide Movement ------- */
-#slide1:checked ~ .carousel-track { transform: translateX(0%); }
-#slide2:checked ~ .carousel-track { transform: translateX(-100%); }
-#slide3:checked ~ .carousel-track { transform: translateX(-200%); }
-#slide4:checked ~ .carousel-track { transform: translateX(-300%); }
+/* Fix spacing for text inside slides */
+.slide p, .slide ul {
+  margin: 6px 0;
+}
 
-/* ------- Arrows ------- */
-.carousel-arrow {
+.slide ul {
+  list-style: none;
+  padding: 10px;
+}
+
+
+/* Manual arrows */
+.prev,
+.next {
   position: absolute;
-  top: 40%;
+  top: 50%;
   transform: translateY(-50%);
-  font-size: 2rem;
-  color: var(--neutral-600);
+  padding: 12px 20px;
+  border: none;
+  background: black;
+  color: white;
   cursor: pointer;
-  padding: 6px;
-  user-select: none;
-  transition: 0.3s;
+  opacity: 0.7;
 }
 
-.carousel-arrow:hover {
-  color: var(--color-primary);
+.prev:hover,
+.next:hover {
+  opacity: 1;
 }
 
-.carousel-arrow.prev { left: 10px; }
-.carousel-arrow.next { right: 10px; }
+.prev { left: 15px; }
+.next { right: 15px; }
+
+.prev, .next {
+  z-index: 10;
+}
+
 /*-------------------code show1----------------------------- //////
 /* LEFT-SIDE BANNER IMAGE */
 .services-banner {
