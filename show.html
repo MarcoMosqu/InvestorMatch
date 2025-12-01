@@ -72,79 +72,78 @@
   </aside>
 
   <!-- =======================
-        SHOWCASE CAROUSEL
-  ======================== -->
-  <section class="services-content">
+    SHOWCASE CAROUSEL
+======================= -->
+<div class="simple-carousel">
 
-    <h2>Startup Showcases</h2>
-    <p>Explore the top startups searching for funding.</p>
-
-    <div class="carousel">
-
-      <!-- Radios -->
-      <input type="radio" name="carousel" id="slide1" checked>
-      <input type="radio" name="carousel" id="slide2">
-     
-      <!-- Track -->
-      <div class="carousel-track">
-
-        <!-- Slide 1 -->
-        <div class="carousel-slide">
-          <div class="service-box">
-            <a href="contact.html">
-            <h3>FinAI — Automated Financial Planning</h3>
-            <p>AI-powered wealth automation for young professionals.</p>
-            <ul>
-              <li>Industry: FinTech</li>
-              <li>Stage: Seed</li>
-              <li>Looking for: $500K</li>
-            </ul>
-          </div>
-          </a>
-        </div>
-         
-        <!-- Slide 2 -->
-        <div class="carousel-slide">
-          <a href="contact.html">
-          <div class="service-box">
-            <h3>HealthLoop — Smart Remote Patient Care</h3>
-            <p>IoT + AI health monitoring for hospitals & clinics.</p>
-            <ul>
-              <li>Industry: HealthTech</li>
-              <li>Stage: Series A</li>
-              <li>Looking for: $2M</li>
-            </ul>
-          </div>
-          </a>
-        </div>
-
-
-      </div>
-
-      <!-- Arrows -->
-      <label for="slide1" class="carousel-arrow prev">‹</label>
-      <label for="slide2" class="carousel-arrow next">›</label>
-
-      <!-- Dots -->
-      <div class="carousel-dots">
-        <label for="slide1"></label>
-        <label for="slide2"></label>
-
-      </div>
-
+  <!-- Wrapper for slides -->
+  <div class="slides">
+    
+    <div class="slide slide1">
+      <h3>FinAI – Automated Financial Planning</h3>
+      <p>AI-powered wealth management for young professionals.</p>
+      <ul>
+        <li>Industry: FinTech</li>
+        <li>Stage: Seed</li>
+        <li>Looking for: $500K</li>
+      </ul>
     </div>
 
-  </section>
+    <div class="slide slide2">
+      <h3>HealthLoop – Smart Remote Patient Care</h3>
+      <p>Remote medical monitoring with AI-driven alerts for hospitals.</p>
+      <ul>
+        <li>Industry: HealthTech</li>
+        <li>Stage: Series A</li>
+        <li>Looking for: $2M</li>
+      </ul>
+    </div>
+
+    <div class="slide slide3">
+      <h3>GreenBox – Sustainable Delivery Solutions</h3>
+      <p>Eco-friendly last-mile delivery using electric mobility solutions.</p>
+      <ul>
+        <li>Industry: Logistics / GreenTech</li>
+        <li>Stage: Seed</li>
+        <li>Looking for: $750K</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- Buttons -->
+  <button class="prev">‹</button>
+  <button class="next">›</button>
+
 </div>
-<!-- FOOTER SECTION -->
-  <footer>
+</div>
+
+
+<!-- FOOTER -->
+<footer>
     <!-- Copyright notice -->
     <p>&copy; 2025 Investor Match. All rights reserved.</p>
-    
     <!-- tagline  -->
     <p><small>Empowering innovation through smart connections.</small></p>
       <p><small></small>https://github.com/MarcoMosqu</small></p>
   </footer>
+
+<script>
+  let index = 0;
+  const slides = document.querySelector(".slides");
+  const total = document.querySelectorAll(".slide").length;
+
+  function showSlide(i) {
+    if (i >= total) index = 0;
+    else if (i < 0) index = total - 1;
+    else index = i;
+
+    slides.style.transform = `translateX(-${index * 100}%)`;
+  }
+
+  document.querySelector(".next").onclick = () => showSlide(index + 1);
+  document.querySelector(".prev").onclick = () => showSlide(index - 1);
+</script>
 
 </body>
 </html>
