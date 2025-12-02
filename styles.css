@@ -122,10 +122,12 @@ nav a:hover { background-color: #3498db; }
 }
 .card-3dRev h2:hover {
   color: var(--color-primary); /* optional hover effect */
-  
+  text-decoration: none;
 }
 .card-3d a,
-.card-3d a:visited {
+.card-3d a:visited,
+.card-3dRev a,
+.card-3dRev a:visited {
   color: inherit;
   text-decoration: none;
 }
