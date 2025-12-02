@@ -160,6 +160,7 @@ footer {
   background: #111827;
   color: #E5E7EB;
   padding: 20px;
+  border-bottom: var(--radius-md);
 }
 footer.footer {
   width: 100%;
@@ -167,6 +168,7 @@ footer.footer {
   margin-top: 40px;
   padding: 20px 0;
   background: var(--neutral-100, #f4f4f4);
+  
 }
 footer p { text-align: center; margin: 5px 0; }
 footer p small { display: block; text-align: center; font-size: 0.8rem; color: #7f8c8d; }
@@ -394,6 +396,9 @@ footer p small { display: block; text-align: center; font-size: 0.8rem; color: #
   /* max-width: 1200px; */
   margin: 0 auto;
 }
+.services-layout + footer {
+  width: 100%;
+}
 
 /* Left: Filter panel */
 .services-filter {
@@ -497,7 +502,7 @@ footer p small { display: block; text-align: center; font-size: 0.8rem; color: #
   overflow: hidden;
   margin: 0 auto;
   border-radius: 10px;
-  background: #111;
+   background: linear-gradient(145deg, #ffffff,#dcdcdcdc);
 }
 
 .slides {
@@ -509,9 +514,9 @@ footer p small { display: block; text-align: center; font-size: 0.8rem; color: #
   min-width: 100%;
   height: 320px;
   display: flex;
-  color: white;
+  color: black;
   border-radius: 10px;
-  background: #1e1e1e;
+  background: linear-gradient(145deg, #dcdcdc,#ffffff);
   overflow: hidden;
 }
 
