@@ -135,6 +135,11 @@ nav a:hover { background-color: #3498db; }
 .card-3dRev {
   margin: 40px auto;
 }
+section,
+.card-3d,
+.card-3dRev {
+  margin: 40px auto; /* Tighter layout */
+}
 
 
 
