@@ -390,6 +390,59 @@ footer p small { display: block; text-align: center; font-size: 0.8rem; color: #
   }
 }
 /* ==========================================================
+   About Seccion. 
+========================================================== */
+.about-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr; /* Image 40%, Text 60% */
+  gap: 30px;
+  align-items: center;
+  padding: 40px;
+}
+.about-layout1 {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr; /* Image 40%, Text 60% */
+  gap: 30px;
+  align-items: center;
+  padding: 40px;
+}
+.about-image {
+  width: 100%;
+  min-height: 260px;
+  border-radius: 15px;
+  background-image: url("https://picsum.photos/500/600?7");
+  background-size: cover;
+  background-position: center;
+}
+.about-image1 {
+  width: 100%;
+  min-height: 260px;
+  border-radius: 15px;
+  background-image: url("https://picsum.photos/500/600?8");
+  background-size: cover;
+  background-position: center;
+}
+/* Text area */
+.about-content h2 {
+  margin-top: 0;
+}
+
+.about-content p {
+  margin: 12px 0;
+}
+
+/* 📱 Responsive: stacks vertically on small screens */
+@media (max-width: 768px) {
+  .about-layout {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .about-image {
+    min-height: 220px;
+  }
+}
+/* ==========================================================
    SERVICES PAGE (NEW) — FILTER PANEL + 2 SERVICE BLOCKS
    Integrated with existing Investor Match design system
 ========================================================== */
