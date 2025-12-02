@@ -153,7 +153,14 @@ nav a:hover { background-color: #3498db; }
 .join-button:hover { background-color: #3498db; }
 
 /* -------------------Footer ---------------------------*/
-/* Footer fix */
+footer {
+  width: 100%;
+  text-align: center;
+  margin-top: 40px;
+  background: #111827;
+  color: #E5E7EB;
+  padding: 20px;
+}
 footer.footer {
   width: 100%;
   text-align: center;
