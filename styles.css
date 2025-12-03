@@ -111,6 +111,7 @@ nav a:hover { background-color: #3498db; }
     0 12px 24px rgba(0,0,0,0.18);     /* depth shadow */
     
   }  
+
 .card-3d h2, .card-3dRev h2 {
   color: var(--neutral-900);
   text-decoration: none;
@@ -733,30 +734,6 @@ footer p small { display: block; text-align: center; font-size: 0.8rem; color: #
   animation: slowZoom 20s ease-in-out infinite alternate;
 }
 
-.banner-image1 {
-  position: absolute;
-  inset: 0;
-  background-image: url('business1.jpg');
-  background-size: cover;
-  background-position: center;
-  animation: slowZoom 20s ease-in-out infinite alternate;
-}
-.banner-image2 {
-  position: absolute;
-  inset: 0;
-  background-image: url('business.jpg');
-  background-size: cover;
-  background-position: center;
-  animation: slowZoom 20s ease-in-out infinite alternate;
-}
-.banner-image3 {
-  position: absolute;
-  inset: 0;
-  background-image: url('business2.jpg');
-  background-size: cover;
-  background-position: center;
-  animation: slowZoom 20s ease-in-out infinite alternate;
-}
 /* Slow zoom animation */
 @keyframes slowZoom {
   from { transform: scale(1); }
