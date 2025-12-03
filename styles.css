@@ -452,6 +452,24 @@ footer p small { display: block; text-align: center; font-size: 0.8rem; color: #
    SERVICES PAGE (NEW) — FILTER PANEL + 2 SERVICE BLOCKS
    Integrated with existing Investor Match design system
 ========================================================== */
+.index-layout {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 380px;
+  margin: 30px auto;
+}
+.services-layout {
+  display: grid;
+  grid-template-columns: 25% auto; /* a bit wider for the image */
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  min-height: 380px;
+  align-items: stretch;
+}
 .services1-layout { 
   display: grid;
   grid-template-columns: 20% 1fr;
@@ -467,14 +485,11 @@ footer p small { display: block; text-align: center; font-size: 0.8rem; color: #
   border-radius: 10px;
 }
 /* Main layout wrapper */
-.services-layout {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: center;
-  gap: 10px;
+.services2-layout {
+  display: flex;
   width: 100%;
-  min-height: 380px;
-  margin: 30px auto;
+  min-height: 500px; /* ensures equal height visually */
+  gap: 20px;
 }
 .side-image {
   background-size: cover;
@@ -487,7 +502,16 @@ footer p small { display: block; text-align: center; font-size: 0.8rem; color: #
 .side-image.left {
   background-image: url("https://picsum.photos/500/600?2");
 }
-
+.services-imagen {
+  background-image: url("https://picsum.photos/400/600");
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  height: 100%; /* now fills full height of parent */
+  aspect-ratio: 4 / 6;    /* ensures proper proportional height */
+  width: 100%;            /* fill the grid column */
+  justify-self: center;
+}
 /* Right Image */
 .side-image.right {
   background-image: url("https://picsum.photos/500/600?3");
@@ -499,15 +523,12 @@ footer p small { display: block; text-align: center; font-size: 0.8rem; color: #
 
 /* Left: Filter panel */
 .services-filter {
-  flex: 0 0 250px; /* do not grow or shrink, fixed 300px width */
-  padding: var(--space-4);
-  background: linear-gradient(145deg, #dcdcdc,#ffffff );
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-soft);
-  height: fit-content;
-  transition: transform 0.3s ease;
-  text-decoration: none;
-  color: inherit;
+  width: 20%;
+  min-width: 240px; /* optional to avoid being too small on small screens */
+  background: linear-gradient(145deg, #dcdcdc,#ffffff);
+  padding: 20px;
+  border-radius: 15px;
+  box-sizing: border-box;
 }
 
 .services-filter:hover {
@@ -603,37 +624,75 @@ footer p small { display: block; text-align: center; font-size: 0.8rem; color: #
    PURE CSS CAROUSEL — INVESTOR SHOWCASES
 ========================================== */
 .simple-carousel {
-  width: 100%;
-  max-width: 650px;
+  flex: 1;
   position: relative;
-  overflow: hidden;
-  margin: 0 auto;
-  border-radius: 10px;
-   background: linear-gradient(145deg, #ffffff,#dcdcdcdc);
+  display: flex;
+  align-items: center;
+  overflow: hidden; /* ❗ hides all slides except the active one */
 }
 
 .slides {
   display: flex;
-  transition: transform 0.4s ease-in-out;
+  flex-wrap: nowrap; /* ❗ prevent stacking */
+  width: 100%;
+  transition: transform 0.4s ease;
 }
 
 .slide {
-  min-width: 100%;
-  height: 320px;
   display: flex;
-  color: black;
-  border-radius: 10px;
-  background: linear-gradient(145deg, #dcdcdc,#ffffff);
-  overflow: hidden;
+  align-items: center;
+  gap: 24px;
+  padding: 24px;
+  box-sizing: border-box;
+  min-width: 100%;  /* ❗ ONE slide takes full view width */
+  max-width: 100%;
+  box-sizing: border-box;
+  background:  linear-gradient(145deg, #ffffff, #dcdcdc);
+  border-radius: 15px;
 }
 
+.prev, .next {
+  position: absolute;
+  top: 50%; /* ← Vertical position control */
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.55);
+  border: none;
+  color: #fff;
+  font-size: 28px;
+  padding: 12px 16px;
+  cursor: pointer;
+  border-radius: 10px;
+  z-index: 10;
+  transition: background 0.3s;
+}
+
+.prev:hover, .next:hover {
+  background: rgba(0,0,0,0.8);
+}
+
+/* Left arrow */
+.prev {
+  left: 12px; /* ← Horizontal position control */
+}
+
+/* Right arrow */
+.next {
+  right: 12px; /* ← Horizontal position control */
+}
+
+
+/* Button positions */
+.simple-carousel .prev { left: 10px; }
+.simple-carousel .next { right: 10px; }
+
+.simple-carousel button:hover {
+  opacity: 1;
+}
 /* Left-side image block */
 .slide::before {
   content: "";
-  display: block;
-  width: 180px;
-  height: 180px;
-  margin: 20px;
+  width: 220px;
+  height: 220px;
   border-radius: 20px;
   flex-shrink: 0;
   background-size: cover;
@@ -648,7 +707,20 @@ footer p small { display: block; text-align: center; font-size: 0.8rem; color: #
 
 .slide-info {
   flex: 1;
-  padding: 20px;
+  
+}
+
+
+@media (max-width: 768px) {
+  .slide-info {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .slide::before {
+    width: 160px;
+    height: 160px;
+  }
 }
 
 .slide-info h3 {
@@ -668,27 +740,7 @@ footer p small { display: block; text-align: center; font-size: 0.8rem; color: #
 }
 
 /* Manual arrows */
-.prev,
-.next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  padding: 10px 16px;
-  border: none;
-  background: black;
-  color: white;
-  cursor: pointer;
-  opacity: 0.7;
-  border-radius: 8px;
-  font-size: 18px;
-}
 
-.prev:hover,
-.next:hover { opacity: 1; }
-
-.prev { left: 15px; }
-.next { right: 15px; }
-.prev, .next { z-index: 10; }
 
 /*-------------------code show1----------------------------- //////
 /* LEFT-SIDE BANNER IMAGE */
