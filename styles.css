@@ -80,7 +80,7 @@ nav a:hover { background-color: #3498db; }
   background: linear-gradient(145deg, #dcdcdc,#ffffff);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-soft);
-  padding: 30px;
+  padding: 10px;
   transition: transform 0.3s ease;
   text-align: center;
   
@@ -89,7 +89,7 @@ nav a:hover { background-color: #3498db; }
   background: linear-gradient(145deg, #ffffff, #dcdcdc);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-soft);
-  padding: 30px;
+  padding: 10px;
   transition: transform 0.3s ease;
   text-align: center;
   
@@ -111,7 +111,6 @@ nav a:hover { background-color: #3498db; }
     0 12px 24px rgba(0,0,0,0.18);     /* depth shadow */
     
   }  
-
 .card-3d h2, .card-3dRev h2 {
   color: var(--neutral-900);
   text-decoration: none;
@@ -134,12 +133,13 @@ nav a:hover { background-color: #3498db; }
 }
 .card-3d,
 .card-3dRev {
-  margin: 40px auto;
+  margin: 20px auto;
 }
-section,
+
 .card-3d,
 .card-3dRev {
-  margin: 40px auto; /* Tighter layout */
+  width: 100%;
+  box-sizing: border-box; /* prevent padding resizing */
 }
 
 
