@@ -18,12 +18,19 @@
   --space-3: 16px;
   --space-4: 24px;
   --space-5: 32px;
+  --space-6: 48px;
+  --space-8: 64px;
 
   --radius-md: 12px;
   --shadow-soft: 0 6px 20px rgba(16,24,40,0.06);
   --max-width: 1100px;
   --hero-min-h: 150px;
   --hero-max-h: 250px;
+  --radius-lg: 20px;
+  --shadow-md: 0 8px 24px rgba(0,0,0,0.12);
+  --shadow-lg: 0 16px 40px rgba(0,0,0,0.18);
+  
+
 }
 
 /* ---------------- Reset + Base ---------------- */
@@ -82,7 +89,13 @@ nav a:hover { background-color: #3498db; }
   box-shadow: var(--shadow-soft);
   padding: 10px;
   transition: transform 0.3s ease;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centers children horizontally */
+  gap: 12px;
+  margin: 20px auto;
+  width: 100%;
+  box-sizing: border-box; /* prevent padding resizing */
   
 }
 .card-3dRev {
@@ -91,28 +104,26 @@ nav a:hover { background-color: #3498db; }
   box-shadow: var(--shadow-soft);
   padding: 10px;
   transition: transform 0.3s ease;
-  text-align: center;
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centers children horizontally */
+  gap: 12px;
+  margin: 20px auto;
+  width: 100%;
+  box-sizing: border-box; /* prevent padding resizing */
 }
 
-.card-3d:hover {
+
+.hover-glow:hover {
   transform: translateY(-6px);
   box-shadow:
-    0 0 28px rgba(59, 130, 246, 0.6), /* strong blue glow */
-    0 12px 24px rgba(0,0,0,0.18);     /* depth shadow */
-    text-decoration: none;
-    
+    0 0 28px rgba(59,130,246,0.6),
+    0 12px 24px rgba(0,0,0,0.18);
 }
 
-.card-3dRev:hover {
-  transform: translateY(-6px);
-  box-shadow:
-    0 0 28px rgba(59, 130, 246, 0.6), /* strong blue glow */
-    0 12px 24px rgba(0,0,0,0.18);     /* depth shadow */
-    
-  }  
 .card-3d h2, .card-3dRev h2 {
   color: var(--neutral-900);
+  text-align: center;
   text-decoration: none;
 }
 
@@ -131,17 +142,21 @@ nav a:hover { background-color: #3498db; }
   color: inherit;
   text-decoration: none;
 }
-.card-3d,
-.card-3dRev {
-  margin: 20px auto;
-}
 
-.card-3d,
-.card-3dRev {
+.card-3d ul, .card-3dRev ul {
+  padding-left: 0;
+  margin: 0;
+  list-style-position: inside;
+  text-align: left; /* makes text readable */
   width: 100%;
-  box-sizing: border-box; /* prevent padding resizing */
+
 }
 
+
+.card-3d li, .card-3dRev li {
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
 
 
 /* ---------------- Sections (IDs) ---------------- */
@@ -173,15 +188,9 @@ footer {
   color: #E5E7EB;
   padding: 20px;
   border-bottom: var(--radius-md);
-}
-footer.footer {
-  width: 100%;
-  text-align: center;
-  margin-top: 40px;
-  padding: 20px 0;
-  background: var(--neutral-100, #f4f4f4);
   
 }
+
 footer p { text-align: center; margin: 5px 0; }
 footer p small { display: block; text-align: center; font-size: 0.8rem; color: #7f8c8d; }
 
@@ -263,7 +272,7 @@ footer p small { display: block; text-align: center; font-size: 0.8rem; color: #
   to   { transform: translateX(0); opacity: 1; }
 }
 
-/* ---------------- Responsive tweaks ---------------- */
+/* ---------------- Responsive tweaks --------------- */
 @media (max-width: 900px) {
   .flex-alt, .section-alt.reverse .flex-alt { flex-direction: column !important; }
   .text-block, .image-block { flex: 1 1 100%; }
@@ -531,14 +540,7 @@ footer p small { display: block; text-align: center; font-size: 0.8rem; color: #
   box-sizing: border-box;
 }
 
-.services-filter:hover {
-  transform: translateY(-6px);
-  box-shadow:
-    0 0 28px rgba(59, 130, 246, 0.6), /* strong blue glow */
-    0 12px 24px rgba(0,0,0,0.18);     /* depth shadow */
-    text-decoration: none;
-    
-}
+
 .services-filter h3,
 .services-filter h4 {
   margin-top: 0;
@@ -595,12 +597,13 @@ footer p small { display: block; text-align: center; font-size: 0.8rem; color: #
   
 }
 
-.services-content p {
+.services-content p, .services-content1 p {
   color: var(--neutral-700);
   margin-bottom: 0px;
 }
+
 /* Make all text inside clickable cards inherit normal color */
-.services-content a {
+.services-content a, .services-content1 a  {
   text-decoration: none;  /* remove underline */
   color: inherit;         /* inherit color from parent */
 }
@@ -608,12 +611,15 @@ footer p small { display: block; text-align: center; font-size: 0.8rem; color: #
 .services-content a:hover {
   color: var(--color-primary); /* optional hover effect */
 }
+.services-content1 a:hover {
+  color: var(--color-primary); /* optional hover effect */
+}
 /* Service Cards */
 
 /* ---------------- Responsive behavior ---------------- */
 @media (max-width: 920px) {
   .services-layout {
-    flex-direction: column;
+    grid-template-columns: 1fr;
   }
 
   .services-filter {
@@ -742,35 +748,9 @@ footer p small { display: block; text-align: center; font-size: 0.8rem; color: #
 /* Manual arrows */
 
 
-/*-------------------code show1----------------------------- //////
+/*-------------------code show1----------------------------- */
 /* LEFT-SIDE BANNER IMAGE */
-.services-banner {
-  flex: 0 0 280px;       /* width of the tall banner */
-  height: 100%;          /* full height of the content */
-  max-height: 900px;
-  overflow: hidden;
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-soft);
-  padding-left: 30px;
-}
 
-.services-banner img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;     /* keep image beautiful */
-  display: block;
-}
-.service-box { 
-  background: linear-gradient(145deg, #dcdcdc,#ffffff );
-  border-radius: var(--radius-md); padding: var(--space-5); 
-  margin-bottom: var(--space-4); 
-  box-shadow: var(--shadow-soft); transition: transform 0.3s ease; 
-  margin-top: 0; /* ensure no extra margin above card */ padding-left: 30px; 
-} 
-.service-box:hover { 
-  transform: translateY(-6px); 
-  box-shadow: 0 0 28px rgba(59, 130, 246, 0.6), /* strong blue glow */ 
-              0 12px 24px rgba(0,0,0,0.18); /* depth shadow */ }
 /* Container */
 .left-banner {
   border-radius: 15px;
@@ -804,14 +784,7 @@ footer p small { display: block; text-align: center; font-size: 0.8rem; color: #
   margin: var(--space-8) 0;
 }
 
-/* Banner container */
-.services-banner {
-  position: relative;
-  height: 320px;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  box-shadow: var(--shadow-lg);
-}
+
 
 /* Background with zoom effect */
 .banner-bg {
