@@ -1,5 +1,5 @@
 /* ===================================================
-   Merged Modern CSS for Investor Match Website
+   Modern CSS for Investor Match Website
    Author: Marco Mosquera (merged)
    Date: 2025-11-13
 =================================================== */
@@ -291,6 +291,23 @@ footer p small { display: block; text-align: center; font-size: 0.8rem; color: #
 .center { display: flex; justify-content: center; align-items: center; }
  
 /* ================= CONTACT SECTION (Merged Style) ================= */
+.contact-layout {
+  background: linear-gradient(145deg, #f0f0f0, #ffffff);
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15), 0 10px 25px rgba(52, 152, 219, 0.2);
+  padding: 40px;             /* increased padding */
+  display: flex;
+  flex-direction: column;
+  perspective: 1000px;       /* enable 3D effect */
+  max-width: 1200px;         /* increased width */
+  min-height: 600px;         /* added height */
+  margin: 50px auto;
+  transition: transform 0.3s ease;
+}
+
+.contact-layout:hover {
+  transform: rotateX(3deg) rotateY(-3deg); /* subtle tilt */
+}
 
 /* Subtitle */
 .contact-subtitle {
@@ -353,6 +370,11 @@ footer p small { display: block; text-align: center; font-size: 0.8rem; color: #
   border-radius: 10px;
   border: 3px solid #3498db;
   /*box-shadow: 0 4px 10px rgba(0,0,0,0.06);*/
+}
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centers inputs + textarea */
 }
 .contact-form label {
   font-weight: bold;
