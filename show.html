@@ -16,21 +16,22 @@
     <h1>Connecting Businesses with the Right Investors</h1>
     
     <!-- Subheading / slogan -->
-  <p class="rain-text">
-      <span>Your</span>
-      <span>bridge</span>
-      <span>between</span>
-      <span class="right-text">ideas</span>
-      <span class="right-text">and</span>
-      <span class="right-text">smart</span> 
-      <span class="right-text">capital.</span>
-  </p>
+   <p class="rain-text ">
+      <span class="left">Your</span>
+      <span class="left">bridge</span>
+      <span class="left">between</span>
+
+      <span class="right">ideas</span>
+      <span class="right">and</span>
+      <span class="right">smart</span>
+      <span class="right">capital.</span>
+    </p>
+
+    <div class="beam"></div>
 
 
   </header>
-<!-- ================================
-   MENU BAR (TOP)
-================================ -->
+
  <!-- NAVIGATION BAR -->
   <nav>
     <!-- Navigation links to different pages -->
@@ -54,18 +55,18 @@
 
     <div class="filter-group">
       <h4>Industry</h4>
-      <label><input type="checkbox"> FinTech</label>
-      <label><input type="checkbox"> HealthTech</label>
-      <label><input type="checkbox"> EdTech</label>
-      <label><input type="checkbox"> AI / ML</label>
+      <label><input type="checkbox" value="fintech"> FinTech</label>
+      <label><input type="checkbox" value="healthtech"> HealthTech</label>
+      <label><input type="checkbox" value="edtech"> EdTech</label>
+      <label><input type="checkbox" value="ai"> AI / ML</label>
     </div>
 
     <div class="filter-group">
       <h4>Funding Stage</h4>
-      <label><input type="checkbox"> Pre-Seed</label>
-      <label><input type="checkbox"> Seed</label>
-      <label><input type="checkbox"> Series A</label>
-      <label><input type="checkbox"> Series B+</label>
+      <label><input type="checkbox" value="pre-seed"> Pre-Seed</label>
+      <label><input type="checkbox" value="seed"> Seed</label>
+      <label><input type="checkbox" value="series-a"> Series A</label>
+      <label><input type="checkbox" value="series-b"> Series B+</label>
     </div>
 
     <button class="filter-btn">Apply Filters</button>
@@ -78,64 +79,68 @@
   <button class="prev">❮</button>
   <div class="slides">
 
-    <div class="slide slide1">
-  <div class="slide-info">
+  <div class="slide slide1" data-industry="fintech" data-stage="seed">
+   <div class="slide-info">
     
 
-    <a href="contact.html">
-      <h3>FinAI — Automated Wealth Planning</h3>
-    </a>
-    <p>
-      FinAI uses artificial intelligence to provide personalized financial guidance
-      for young professionals and small business owners.
-    </p>
-    <ul>
-      <li>Funding Needed: $500K Seed</li>
-      <li>Industry: FinTech</li>
-      <li>Core Tech: AI — Predictive Financial Modeling</li>
-      <li>Traction: 5K Beta Users</li>
+      <a href="contact.html">
+        <h3>FinAI — Automated Wealth Planning</h3>
+      </a>
+      <p>
+        FinAI uses artificial intelligence to provide personalized financial guidance
+        for young professionals and small business owners.
+      </p>
+      <ul>
+        <li>Funding Needed: $500K Seed</li>
+        <li>Industry: FinTech</li>
+        <li>Core Tech: AI — Predictive Financial Modeling</li>
+        <li>Traction: 5K Beta Users</li>
     </ul>
+    </div>
   </div>
-</div>
 
-<div class="slide slide2">
-  <div class="slide-info">
+ <div class="slide slide2" data-industry="healthtech" data-stage="series-a">
+    <div class="slide-info">
+      
+
+      <a href="contact.html">
+        <h3>HealthLoop — Smart Remote Patient Care</h3>
+      </a>
+      <p>
+        A secure platform that helps hospitals monitor patients remotely with
+        real-time alerts and automated health tracking.
+      </p>
+      <ul>
+        <li>Funding Needed: $2M Series A</li>
+        <li>Industry: HealthTech</li>
+        <li>Core Tech: IoT + Machine Learning</li>
+        <li>Clients: 12 Hospitals</li>
+      </ul>
+    </div>
+ </div>
+
+ <div class="slide slide3" data-industry="greentech" data-stage="pre-seed">
+    <div class="slide-info">
+      
+      <a href="contact.html">
+        <h3>GreenBox — Eco-Friendly Deliveries</h3>
+      </a>
+      <p>
+        A sustainable delivery network using electric micro-vehicles designed
+        for efficient urban logistics.
+      </p>
+      <ul>
+        <li>Funding Needed: $750K Pre-Series A</li>
+        <li>Industry: Logistics / GreenTech</li>
+        <li>CO2 Reduction: 65% Compared to Gas Fleets</li>
+        <li>Pilot Program: 3 Major Cities</li>
+      </ul>
+    </div>
     
-
-    <a href="contact.html">
-      <h3>HealthLoop — Smart Remote Patient Care</h3>
-    </a>
-    <p>
-      A secure platform that helps hospitals monitor patients remotely with
-      real-time alerts and automated health tracking.
-    </p>
-    <ul>
-      <li>Funding Needed: $2M Series A</li>
-      <li>Industry: HealthTech</li>
-      <li>Core Tech: IoT + Machine Learning</li>
-      <li>Clients: 12 Hospitals</li>
-    </ul>
-  </div>
 </div>
-
-<div class="slide slide3">
-  <div class="slide-info">
-    
-    <a href="contact.html">
-      <h3>GreenBox — Eco-Friendly Deliveries</h3>
-    </a>
-    <p>
-      A sustainable delivery network using electric micro-vehicles designed
-      for efficient urban logistics.
-    </p>
-    <ul>
-      <li>Funding Needed: $750K Pre-Series A</li>
-      <li>Industry: Logistics / GreenTech</li>
-      <li>CO2 Reduction: 65% Compared to Gas Fleets</li>
-      <li>Pilot Program: 3 Major Cities</li>
-    </ul>
-  </div>
-</div>
+<p id="noResults" class="no-results">
+      No results found.
+</p>
 
 
   </div>
@@ -158,22 +163,7 @@
       <p><small></small>https://github.com/MarcoMosqu</small></p>
   </footer>
 
-<script>
-  let index = 0;
-  const slides = document.querySelector(".slides");
-  const total = document.querySelectorAll(".slide").length;
-
-  function showSlide(i) {
-    if (i >= total) index = 0;
-    else if (i < 0) index = total - 1;
-    else index = i;
-
-    slides.style.transform = `translateX(-${index * 100}%)`;
-  }
-
-  document.querySelector(".next").onclick = () => showSlide(index + 1);
-  document.querySelector(".prev").onclick = () => showSlide(index - 1);
-</script>
+ <script src="script.js"></script>
 
 </body>
 </html>

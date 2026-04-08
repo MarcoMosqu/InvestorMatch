@@ -215,62 +215,149 @@ footer p small { display: block; text-align: center; font-size: 0.8rem; color: #
   padding: 0 20px;
 }
 @keyframes zoomEffect { 0% { transform: scale(1); } 100% { transform: scale(1.03); } }
-.hero h1 { font-size: 1.8rem; margin-bottom: 0.5rem; color: white; }
+.hero h1 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  color: white;
+  display: inline-block;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+
+@keyframes shake {
+  0%   { transform: translateX(0); }
+  20%  { transform: translateX(-4px); }
+  40%  { transform: translateX(4px); }
+  60%  { transform: translateX(-4px); }
+  80%  { transform: translateX(4px); }
+  100% { transform: translateX(0); }
+}
+
+
+@keyframes glow {
+  0%   { text-shadow: 0 0 5px rgba(255,255,255,0.5); }
+  50%  { text-shadow: 0 0 20px rgba(255,255,255,0.9), 0 0 30px rgba(0,150,255,0.8); }
+  100% { text-shadow: 0 0 5px rgba(255,255,255,0.5); }
+}
+
+
+.hero h1:hover {
+  color: #aee2ff; /* soft blue highlight */
+  animation: shake 0.4s ease, glow 1s ease;
+}
 .hero p { font-size: 1rem; color: white; text-align: center; overflow: hidden; }
 
 /* ---------------- Rain / Word Animations ---------------- */
 /* Parent for the rain words */
 .rain-text {
-  text-align: center;
   font-size: 2rem;
   font-weight: 700;
-  overflow: hidden;
-  line-height: 1.1;
+  text-align: center;
+  display: inline-block;
+  
 }
 
-/* Reset for every word span inside .rain-text */
+/* Words base */
 .rain-text span {
   display: inline-block;
   opacity: 0;
-  white-space: nowrap;
 }
 
-/* Left-to-right rain (apply to words NOT .right-text) */
-.rain-text span:not(.right-text) {
-  transform: translateX(-120%);
-  animation: rainSlide 3s ease-out infinite alternate;
-  /* You can change duration here */
+.rain-text.shake {
+  animation: shake 0.5s ease;
 }
 
-/* Stagger left words */
-.rain-text span:nth-child(1):not(.right-text) { animation-delay: 0.2s; }
-.rain-text span:nth-child(2):not(.right-text) { animation-delay: 0.6s; }
-.rain-text span:nth-child(3):not(.right-text) { animation-delay: 1s; }
-.rain-text span:nth-child(4):not(.right-text) { animation-delay: 1.4s; }
-
-/* Right-side words: their own initial state + staggered delays */
-.right-text {
-  transform: translateX(120%);
+.beam {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 2px;
+  width: 0;
+  background: linear-gradient(90deg, transparent, #aee2ff, transparent);
+  transform: translate(-50%, -50%);
   opacity: 0;
-  display: inline-block;
-  animation: rainSlide 3s ease-out infinite alternate;
+  animation: beamGrow 5s ease-in-out infinite;
+}
+@keyframes beamGrow {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+
+  30% {
+    width: 0;
+    opacity: 0;
+  }
+
+  50% {
+    width: 800px; /* adjust depending on text width */
+    opacity: 1;
+  }
+
+  70% {
+    width: 200px;
+    opacity: 1;
+  }
+
+  100% {
+    width: 0;
+    opacity: 0;
+  }
 }
 
-/* stagger for multiple right-text spans (uses nth-of-type relative to the parent p element) */
-.rain-text > .right-text:nth-of-type(5) { animation-delay: 2s; }
-.rain-text > .right-text:nth-of-type(6) { animation-delay: 2.4s; }
-.rain-text > .right-text:nth-of-type(7) { animation-delay: 2.8s; }
-.rain-text > .right-text:nth-of-type(8) { animation-delay: 3.2s; }
+.left {
+  transform: translateX(-50px);
+}
 
-/* Keyframes */
-@keyframes rainSlide {
-  from { transform: translateX(-120%); opacity: 0; }
-  to   { transform: translateX(0); opacity: 1; }
+.right {
+  transform: translateX(50px);
 }
-@keyframes slideInRight {
-  from { transform: translateX(120%); opacity: 0; }
-  to   { transform: translateX(0); opacity: 1; }
+.animate .left {
+  animation: slideFromLeft 1s ease forwards;
+  
 }
+
+.animate .right {
+  animation: slideFromRight 1s ease forwards;
+}
+
+.animate .left:nth-of-type(1) { animation-delay: 0.2s; }
+.animate .left:nth-of-type(2) { animation-delay: 0.5s; }
+.animate .left:nth-of-type(3) { animation-delay: 0.8s; }
+
+.animate .right:nth-of-type(1) { animation-delay: 1.1s; }
+.animate .right:nth-of-type(2) { animation-delay: 1.4s; }
+.animate .right:nth-of-type(3) { animation-delay: 1.7s; }
+.animate .right:nth-of-type(4) { animation-delay: 2s; }
+
+/* Slide animations */
+@keyframes slideFromLeft {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideFromRight {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* 🔥 SHAKE AFTER CONNECTION */
+@keyframes containerShake {
+  0%, 70%, 100% { transform: translateX(0); }
+
+  /* shake happens AFTER words arrive */
+  75% { transform: translateX(-4px); }
+  80% { transform: translateX(4px); }
+  85% { transform: translateX(-4px); }
+  90% { transform: translateX(4px); }
+  95% { transform: translateX(0); }
+}
+
+
 
 /* ---------------- Responsive tweaks --------------- */
 @media (max-width: 900px) {
@@ -636,6 +723,16 @@ footer p small { display: block; text-align: center; font-size: 0.8rem; color: #
 .services-content1 a:hover {
   color: var(--color-primary); /* optional hover effect */
 }
+.no-results {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5rem;
+  color: #666;
+  text-align: center;
+}
 /* Service Cards */
 
 /* ---------------- Responsive behavior ---------------- */
@@ -674,6 +771,7 @@ footer p small { display: block; text-align: center; font-size: 0.8rem; color: #
   box-sizing: border-box;
   min-width: 100%;  /* ❗ ONE slide takes full view width */
   max-width: 100%;
+  min-height: 300px;
   box-sizing: border-box;
   background:  linear-gradient(145deg, #ffffff, #dcdcdc);
   border-radius: 15px;
