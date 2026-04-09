@@ -187,12 +187,36 @@ footer {
   background: #111827;
   color: #E5E7EB;
   padding: 20px;
-  border-bottom: var(--radius-md);
+  border-bottom: 2px solid #333;
   
+}
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-logo {
+  margin: 0 15px;
+  width: 80px;
+  flex-shrink: 0;
+  border-radius: 5px;
+}
+
+.footer-text {
+  text-align: center;
+  max-width: 400px;
 }
 
 footer p { text-align: center; margin: 5px 0; }
 footer p small { display: block; text-align: center; font-size: 0.8rem; color: #7f8c8d; }
+
+@media (max-width: 600px) {
+  .footer-content {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
 
 /* ---------------- Hero Section (Responsive) ---------------- */
 .hero {
@@ -615,6 +639,8 @@ footer p small { display: block; text-align: center; font-size: 0.8rem; color: #
   background-repeat: no-repeat;
   border-radius: 10px;
   min-height: 300px;
+  opacity: 1;
+  transition: opacity 0.4s ease;
 }
 /* Left Image */
 .side-image.left {
