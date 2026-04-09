@@ -118,3 +118,50 @@ filterBtn.addEventListener("click", () => {
     filtersApplied = true;
   }
 });
+
+// CONTACT FORM VALIDATION
+
+const form = document.querySelector("#contactForm");
+const nameInput = document.querySelector("#name");
+const emailInput = document.querySelector("#email");
+const messageInput = document.querySelector("#message");
+
+// Regex patterns
+const nameRegex = /^[a-zA-Z\s]{3,}$/; // at least 3 letters
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // simple email
+const messageRegex = /^.{10,}$/; // at least 10 characters
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault(); // stop form from sending
+
+  let isValid = true;
+
+  // Reset styles
+  [nameInput, emailInput, messageInput].forEach(input => {
+    input.style.border = "1px solid #ccc";
+  });
+
+  // NAME VALIDATION
+  if (!nameRegex.test(nameInput.value)) {
+    nameInput.style.border = "2px solid red";
+    isValid = false;
+  }
+
+  // EMAIL VALIDATION
+  if (!emailRegex.test(emailInput.value)) {
+    emailInput.style.border = "2px solid red";
+    isValid = false;
+  }
+
+  // MESSAGE VALIDATION
+  if (!messageRegex.test(messageInput.value)) {
+    messageInput.style.border = "2px solid red";
+    isValid = false;
+  }
+
+  // SUCCESS
+  if (isValid) {
+    alert("Message sent successfully! 🚀");
+    form.reset();
+  }
+});
