@@ -42,42 +42,42 @@
 <div  class="contact-layout">
 
   <!-- Top Row: Info + Map -->
-  <div class="contact-top">
+    <div class="contact-top">
 
-    <!-- Left: Map -->
-    <div class="contact-map">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.01923983557!2d-122.419415!3d37.774929!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085809c5d59fd35%3A0xfbc7e6c2b7a8e3f0!2sSan%20Francisco%2C%20CA!5e0!3m2!1sen!2sus!4v000000000"
-        allowfullscreen=""
-        loading="lazy">
-      </iframe>
+      <!-- Left: Map -->
+      <div class="contact-map">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.01923983557!2d-122.419415!3d37.774929!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085809c5d59fd35%3A0xfbc7e6c2b7a8e3f0!2sSan%20Francisco%2C%20CA!5e0!3m2!1sen!2sus!4v000000000"
+          allowfullscreen=""
+          loading="lazy">
+        </iframe>
+      </div>
+
+      <!-- Right: Info -->
+      <div class="contact-info-block">
+        <div class="info-item"><span class="icon">📧</span> support@investormatch.com</div>
+        <div class="info-item"><span class="icon">📍</span> San Francisco, CA</div>
+        <div class="info-item"><span class="icon">⏰</span> Mon–Fri · 9 AM – 5 PM</div>
+      </div>
+
     </div>
 
-    <!-- Right: Info -->
-    <div class="contact-info-block">
-      <div class="info-item"><span class="icon">📧</span> support@investormatch.com</div>
-      <div class="info-item"><span class="icon">📍</span> San Francisco, CA</div>
-      <div class="info-item"><span class="icon">⏰</span> Mon–Fri · 9 AM – 5 PM</div>
-    </div>
+    <!-- Bottom: Form -->
+      <div class="contact-form">
+            <form id="contactForm">
+                  <label for="name">Full Name</label>
+                  <input type="text" id="name" name="name" placeholder="Enter your full name" autocomplete="name"required />
 
-  </div>
+                  <label for="email">Email</label>
+                  <input type="email" id="email" name="email" placeholder="Enter your email" autocomplete="email"required />
 
-  <!-- Bottom: Form -->
-  <div class="contact-form">
-  <form id="contactForm">
-      <label for="name">Full Name</label>
-      <input type="text" id="name" name="name" placeholder="Enter your full name" required />
+                  <label for="message">Message</label>
+                  <textarea id="message" name="message"  rows="4" placeholder="Write your message here..." autocomplete="off"required> </textarea>
 
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" placeholder="Enter your email" required />
-
-      <label for="message">Message</label>
-      <textarea id="message" name="message" rows="4" placeholder="Write your message here..." required></textarea>
-
-      <button type="submit" class="join-button modern-btn">Send Message</button>
-  </form>
-</div>
-</div>
+                  <button type="submit" class="join-button modern-btn">Send Message</button>
+            </form>
+      </div>
+ </div>
 
 
 
