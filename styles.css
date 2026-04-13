@@ -193,10 +193,11 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 30px;
 }
 
 .footer-logo {
-  margin: 0 15px;
+  margin: 0;
   width: 80px;
   flex-shrink: 0;
   border-radius: 5px;
@@ -577,13 +578,9 @@ footer p small { display: block; text-align: center; font-size: 0.8rem; color: #
 .index-layout {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
-  align-items: center;
-  gap: 8px;
+  gap: 20px;
   width: 100%;
-  min-height: 380px;
-  margin: 30px auto;
-  max-width: 1200px;   
-  padding: 0 20px;     
+  padding: 0 clamp(10px, 5vw, 40px);
 }
 .services-layout {
   display: grid;
@@ -620,25 +617,38 @@ footer p small { display: block; text-align: center; font-size: 0.8rem; color: #
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 15px;
-  height: 260px;
-  max-width: 300px;
+  
+
   width: 100%;
-  justify-self: center;
-  min-height: 300px;
+  max-width: none;
+  height: clamp(250px, 30vw, 500px);
+
   opacity: 1;
   transition: opacity 0.4s ease;
-}
+  
+ }
+
   @media (max-width: 768px) {
     .index-layout {
       grid-template-columns: 1fr;
-      gap: 20px;
+      justify-items: center;
+      
     }
 
-    .side-image {
-      height: 200px;
+    .side-image,
+    .card-3d {
+      width: 100%;
+      max-width: 500px;
+      
     }
+ }
+
+  @media (min-width: 1200px) {
+  .side-image {
+    max-width: 500px;
+    height: 400px;
   }
-/* Left Image */
+}
 
 .services-imagen {
   background-image: url("https://picsum.photos/400/600");
@@ -650,7 +660,6 @@ footer p small { display: block; text-align: center; font-size: 0.8rem; color: #
   width: 100%;            
   justify-self: center;
 }
-/* Right Image */
 
 
 .services-layout + footer {
