@@ -220,8 +220,7 @@ footer p small { display: block; text-align: center; font-size: 0.8rem; color: #
 
 /* ---------------- Hero Section (Responsive) ---------------- */
 .hero {
-  width: 100%;
-  height: 70px;                    /* default small banner */
+  width: 100%;                    
   min-height: var(--hero-min-h);
   max-height: var(--hero-max-h);
   background-image: url('hunting2.jpg');
@@ -404,7 +403,6 @@ footer p small { display: block; text-align: center; font-size: 0.8rem; color: #
   background: linear-gradient(145deg, #f0f0f0, #ffffff);
   border-radius: 16px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.15), 0 10px 25px rgba(52, 152, 219, 0.2);
-  padding: 40px;             /* increased padding */
   display: flex;
   flex-direction: column;
   perspective: 1000px;       /* enable 3D effect */
@@ -412,6 +410,7 @@ footer p small { display: block; text-align: center; font-size: 0.8rem; color: #
   min-height: 600px;         /* added height */
   margin: 50px auto;
   transition: transform 0.3s ease;
+  
 }
 
 .contact-layout:hover {
@@ -436,9 +435,10 @@ footer p small { display: block; text-align: center; font-size: 0.8rem; color: #
 
 /* Left half: Map */
 .contact-map {
-  flex: 1;
-  min-width: 300px;
+  flex: 1 1 300px;
+  min-width: 0;
   height: 300px;
+  font-size: 1.5rem;
   border-radius: 10px;
   overflow: hidden;
   border: 3px solid #3498db;
@@ -452,9 +452,10 @@ footer p small { display: block; text-align: center; font-size: 0.8rem; color: #
 
 /* Right half: Stacked info block */
 .contact-info-block {
-  flex: 1;
-  min-width: 300px;
+  flex: 1 1 300px;
+  min-width: 0;
   padding: 15px;
+  font-size: 1.5rem;
   border-radius: 10px;
   border: 3px solid #3498db;
 }
@@ -473,7 +474,7 @@ footer p small { display: block; text-align: center; font-size: 0.8rem; color: #
 
 /* ========== FORM SECTION ========== */
 .contact-form {
-  width: 98%;
+  width: 100%;
   border-radius: 10px;
   border: 3px solid #3498db;
   
@@ -528,9 +529,29 @@ footer p small { display: block; text-align: center; font-size: 0.8rem; color: #
 }
 
 /* Responsive: stack map and info */
+@media (max-width: 600px) {
+  .contact-top {
+    flex-direction: column;
+  }
+
+  .contact-map,
+  .contact-info-block {
+    flex: none;       
+    width: 100%;
+  }
+  .contact-info-block .info-item {
+    font-size: 1.1rem;
+  }
+}
+
 @media (max-width: 800px) {
   .contact-top {
     flex-direction: column;
+  }
+
+  .contact-map,
+  .contact-info-block {
+    width: 100%;
   }
 }
 /* ==========================================================
@@ -799,7 +820,6 @@ footer p small { display: block; text-align: center; font-size: 0.8rem; color: #
   min-width: 100%;  /* ❗ ONE slide takes full view width */
   max-width: 100%;
   min-height: 300px;
-  box-sizing: border-box;
   background:  linear-gradient(145deg, #ffffff, #dcdcdc);
   border-radius: 15px;
 }
