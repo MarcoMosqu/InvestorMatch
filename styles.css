@@ -221,7 +221,6 @@ footer p small { display: block; text-align: center; font-size: 0.8rem; color: #
 /* ---------------- Hero Section (Responsive) ---------------- */
 .hero {
   width: 100%;
-  height: 70px;                    /* default small banner */
   min-height: var(--hero-min-h);
   max-height: var(--hero-max-h);
   background-image: url('hunting2.jpg');
@@ -231,6 +230,8 @@ footer p small { display: block; text-align: center; font-size: 0.8rem; color: #
   display: flex;
   flex-direction: column;
   justify-content: center;
+  position: relative;
+  overflow: hidden;
   align-items: center;
   text-align: center;
   color: white;
@@ -244,6 +245,8 @@ footer p small { display: block; text-align: center; font-size: 0.8rem; color: #
   margin-bottom: 0.5rem;
   color: white;
   display: inline-block;
+  position: relative;
+  z-index: 1;
   transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
@@ -269,7 +272,8 @@ footer p small { display: block; text-align: center; font-size: 0.8rem; color: #
   color: #aee2ff; /* soft blue highlight */
   animation: shake 0.4s ease, glow 1s ease;
 }
-.hero p { font-size: 1rem; color: white; text-align: center; overflow: hidden; }
+.hero p { font-size: 1rem; color: white; text-align: center; overflow: hidden;position: relative;
+  z-index: 1; }
 
 /* ---------------- Rain / Word Animations ---------------- */
 /* Parent for the rain words */
@@ -291,43 +295,6 @@ footer p small { display: block; text-align: center; font-size: 0.8rem; color: #
   animation: shake 0.5s ease;
 }
 
-.beam {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  height: 2px;
-  width: 0;
-  background: linear-gradient(90deg, transparent, #aee2ff, transparent);
-  transform: translate(-50%, -50%);
-  opacity: 0;
-  animation: beamGrow 5s ease-in-out infinite;
-}
-@keyframes beamGrow {
-  0% {
-    width: 0;
-    opacity: 0;
-  }
-
-  30% {
-    width: 0;
-    opacity: 0;
-  }
-
-  50% {
-    width: 800px; /* adjust depending on text width */
-    opacity: 1;
-  }
-
-  70% {
-    width: 200px;
-    opacity: 1;
-  }
-
-  100% {
-    width: 0;
-    opacity: 0;
-  }
-}
 
 .left {
   transform: translateX(-50px);
@@ -369,6 +336,44 @@ footer p small { display: block; text-align: center; font-size: 0.8rem; color: #
   }
 }
 
+.beam {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 2px;
+
+  width: 0;
+  max-width: 800px; /* prevents it from getting too big */
+
+  background: linear-gradient(90deg, transparent, #aee2ff, transparent);
+
+  transform: translate(-50%, -50%);
+  opacity: 0;
+
+  z-index: 0; /* stays behind text */
+  animation: beamGrow 5s ease-in-out infinite;
+}
+@keyframes beamGrow {
+  0%, 30% {
+    width: 0;
+    opacity: 0;
+  }
+
+  50% {
+    width: 80vw; /* responsive instead of fixed 800px */
+    opacity: 1;
+  }
+
+  70% {
+    width: 40vw; /* shrinks smoothly */
+    opacity: 1;
+  }
+
+  100% {
+    width: 0;
+    opacity: 0;
+  }
+}
 
 @keyframes containerShake {
   0%, 70%, 100% { transform: translateX(0); }
@@ -673,6 +678,7 @@ footer p small { display: block; text-align: center; font-size: 0.8rem; color: #
   background: linear-gradient(145deg, #dcdcdc,#ffffff);
   padding: 20px;
   border-radius: 15px;
+  flex-shrink: 0;
   box-sizing: border-box;
 }
 
@@ -781,6 +787,8 @@ footer p small { display: block; text-align: center; font-size: 0.8rem; color: #
   display: flex;
   align-items: center;
   overflow: hidden; /* ❗ hides all slides except the active one */
+  min-height: 320px;
+  min-width: 0;
 }
 
 .slides {
@@ -865,14 +873,18 @@ footer p small { display: block; text-align: center; font-size: 0.8rem; color: #
 
 
 @media (max-width: 768px) {
-  .slide-info {
-    flex-direction: column;
-    text-align: center;
+  .services2-layout {
+    display: flex;
+    flex-direction: column; /* 🔥 stack vertically */
   }
 
-  .slide::before {
-    width: 160px;
-    height: 160px;
+  .services-filter {
+    width: 100%;
+  }
+
+  .simple-carousel {
+    width: 100%;
+    min-height: 320px; /* ensures it's visible */
   }
 }
 
