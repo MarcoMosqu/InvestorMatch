@@ -1,4 +1,4 @@
-console.log("JS is running");
+
 document.addEventListener("DOMContentLoaded", () => {
 
   // 1. Rain text animation
@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   
   function changeImages() {
-    console.log("Changing images...");
+    
 
     allImages.forEach((element, index) => {
       const id = Math.floor(Math.random() * 1000);
@@ -224,7 +224,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       if (isValid) {
-        alert("Message sent successfully! 🚀");
+        alert("Message sent successfully! ");
         form.reset();
       }
     });

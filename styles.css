@@ -1,7 +1,7 @@
 /* ===================================================
    Modern CSS for Investor Match Website
    Author: Marco Mosquera (merged)
-   Date: 2026-04-12
+   Date: 2026-04-14
 =================================================== */
 
 /* ---------------- Root Variables ---------------- */
@@ -54,7 +54,7 @@ a:hover { text-decoration: none; }
 /*------- Header Typogrphia----------- */
 
 header h1 {text-align: center; margin: 0;
-            text-shadow: 0 3px 8px rgba(0,0,0,0.7); /* stronger shadow */
+            text-shadow: 0 3px 8px rgba(0,0,0,0.7); 
             font-size: 12rem;
             font-weight: 800;
 }
@@ -187,6 +187,7 @@ footer {
   color: #E5E7EB;
   padding: 20px;
   border-bottom: 2px solid #333;
+  box-sizing: border-box;
   
 }
 .footer-content {
@@ -221,7 +222,6 @@ footer p small { display: block; text-align: center; font-size: 0.8rem; color: #
 /* ---------------- Hero Section (Responsive) ---------------- */
 .hero {
   width: 100%;                    
-  width: 100%;
   min-height: var(--hero-min-h);
   max-height: var(--hero-max-h);
   background-image: url('hunting2.jpg');
@@ -235,6 +235,7 @@ footer p small { display: block; text-align: center; font-size: 0.8rem; color: #
   overflow: hidden;
   align-items: center;
   text-align: center;
+  box-sizing: border-box;
   color: white;
   text-shadow: 0 2px 6px rgba(0,0,0,0.6);
   animation: zoomEffect 20s ease-in-out infinite alternate;
@@ -344,14 +345,14 @@ footer p small { display: block; text-align: center; font-size: 0.8rem; color: #
   height: 2px;
 
   width: 0;
-  max-width: 800px; /* prevents it from getting too big */
+  max-width: 800px; 
 
   background: linear-gradient(90deg, transparent, #aee2ff, transparent);
 
   transform: translate(-50%, -50%);
   opacity: 0;
 
-  z-index: 0; /* stays behind text */
+  z-index: 0;
   animation: beamGrow 5s ease-in-out infinite;
 }
 @keyframes beamGrow {
@@ -361,12 +362,12 @@ footer p small { display: block; text-align: center; font-size: 0.8rem; color: #
   }
 
   50% {
-    width: 80vw; /* responsive instead of fixed 800px */
+    width: 80vw; 
     opacity: 1;
   }
 
   70% {
-    width: 40vw; /* shrinks smoothly */
+    width: 40vw; 
     opacity: 1;
   }
 
@@ -412,16 +413,16 @@ footer p small { display: block; text-align: center; font-size: 0.8rem; color: #
   box-shadow: 0 10px 25px rgba(0,0,0,0.15), 0 10px 25px rgba(52, 152, 219, 0.2);
   display: flex;
   flex-direction: column;
-  perspective: 1000px;       /* enable 3D effect */
-  max-width: 1200px;         /* increased width */
-  min-height: 600px;         /* added height */
+  perspective: 1000px;       
+  max-width: 1200px;         
+  min-height: 600px;         
   margin: 50px auto;
   transition: transform 0.3s ease;
   
 }
 
 .contact-layout:hover {
-  transform: rotateX(3deg) rotateY(-3deg); /* subtle tilt */
+  transform: rotateX(3deg) rotateY(-3deg); 
 }
 
 /* Subtitle */
@@ -566,14 +567,14 @@ footer p small { display: block; text-align: center; font-size: 0.8rem; color: #
 ========================================================== */
 .about-layout {
   display: grid;
-  grid-template-columns: 1fr 1.5fr; /* Image 40%, Text 60% */
+  grid-template-columns: 1fr 1.5fr; 
   gap: 30px;
   align-items: center;
   padding: 40px;
 }
 .about-layout1 {
   display: grid;
-  grid-template-columns: 1.5fr 1fr; /* Image 40%, Text 60% */
+  grid-template-columns: 1.5fr 1fr; 
   gap: 30px;
   align-items: center;
   padding: 40px;
@@ -809,14 +810,14 @@ footer p small { display: block; text-align: center; font-size: 0.8rem; color: #
   position: relative;
   display: flex;
   align-items: center;
-  overflow: hidden; /* ❗ hides all slides except the active one */
+  overflow: hidden; 
   min-height: 320px;
   min-width: 0;
 }
 
 .slides {
   display: flex;
-  flex-wrap: nowrap; /* ❗ prevent stacking */
+  flex-wrap: nowrap; 
   width: 100%;
   transition: transform 0.4s ease;
 }
@@ -827,7 +828,7 @@ footer p small { display: block; text-align: center; font-size: 0.8rem; color: #
   gap: 24px;
   padding: 24px;
   box-sizing: border-box;
-  min-width: 100%;  /* ❗ ONE slide takes full view width */
+  min-width: 100%;  
   max-width: 100%;
   min-height: 300px;
   background:  linear-gradient(145deg, #ffffff, #dcdcdc);
@@ -836,7 +837,7 @@ footer p small { display: block; text-align: center; font-size: 0.8rem; color: #
 
 .prev, .next {
   position: absolute;
-  top: 50%; /* ← Vertical position control */
+  top: 50%; 
   transform: translateY(-50%);
   background: rgba(0,0,0,0.55);
   border: none;
@@ -897,7 +898,7 @@ footer p small { display: block; text-align: center; font-size: 0.8rem; color: #
 @media (max-width: 768px) {
   .services2-layout {
     display: flex;
-    flex-direction: column; /* 🔥 stack vertically */
+    flex-direction: column; 
   }
 
   .services-filter {
@@ -906,7 +907,7 @@ footer p small { display: block; text-align: center; font-size: 0.8rem; color: #
 
   .simple-carousel {
     width: 100%;
-    min-height: 320px; /* ensures it's visible */
+    min-height: 320px; 
   }
 }
 
